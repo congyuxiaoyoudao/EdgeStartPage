@@ -1,15 +1,73 @@
-<html>
-	<head></head>
-	<body>
-<form action="https://www.bing.com/search" method="get">
+<!--
+ * @Author: congyuxiaoyoudao
+ * @Date: 2025-01-21
+ * @Description: html file
+-->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新标签页</title>
+    <link rel="icon" href="../rc/favicon.ico" type="image/x-icon">
+    <!-- 引用CSS文件 -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="h-full" id="vertical-container">
+        <div id="header-dummy"></div>
+        <div class="w-full" id="time-wrap">
+            <div id="time-box">
+                <time class="time" id="hour">16</time>
+                <span class="time">:</span>
+                <time class="time" id="minute">50</time>
+            </div>
+            <div id="date-box">
+                <span id="date">1月21日</span>
+                <span id="weekday"></span>
+                <span id="lunarday"></span>
+            </div>
 
-    <input type="text" name="q" placeholder="输入搜索内容">
+        </div>
+        <div class="w-full" id="search-form-wrap">
+            <div id="search-box">
+                <form action="https://www.bing.com/search" method="get" autocomplete="off">
+                    <input type="text" class="w-full" id="inputbox" name="q" placeholder="要搜点什么呢～(∠・ω< )⌒★">
+                    <button type="submit" id="search">
+                        <img src="../rc/search.png" width="20px" height="20px">
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="hitokoto"></div>
+        <div id="footer-dummy" class="h-full"></div>
+    </div>
 
+    <video class="wallpaper w-full h-full" src="../rc/bg.mp4" autoplay="autoplay" loop="loop" muted="mute"></video>
+<script>
+    function updateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1; // 从0开始
+        const day = now.getDate();
+        
+        const dayOfWeek = now.getDay();
+        const weekDays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        const dayOfWeekName = weekDays[dayOfWeek];
 
-    <input type="submit" value="Search">
-
-
-</form>
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        
+        document.getElementById('hour').textContent = hours;
+        document.getElementById('minute').textContent = minutes;
+        
+    }
+        
+    updateTime();
+        
+    setInterval(updateTime, 1000);
+</script>
+<script type="text/javascript" src="https://international.v1.hitokoto.cn?encode=js&amp;charset=utf-8&amp;&amp;c=j&amp;c=k&amp;c=l"></script>
 </body>
 
 </html>
