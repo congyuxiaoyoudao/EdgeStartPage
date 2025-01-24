@@ -21,10 +21,61 @@ body{
     padding: 0;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
 
-#search-box{
+#search-box,#favorites-box{
     max-width: 600px;
     margin: 3vh auto 20px;
+}
+
+/* favorite box */
+#favorites-box{
+    position: relative;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.favor-item{
+    position: relative;
+    float: left;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.favor-item-icon{
+    margin:0 auto;
+    display: flex;
+    border-radius: 10px;
+}
+
+#bilibili{
+    background-color: #FE65A6;
+}
+
+#zhihu{
+    background-color: #0C6DFE;
+}
+
+#panbaidu{
+    background-color: #FFFFFF;
+}
+
+#github{
+    background-color: #24292E;
+}
+
+#pinterest{
+    background-color: #E60023;
+}
+
+.favor-item-name{
+    text-align: center;
+    margin:0;
+    font-size: 12px;
+    color: aliceblue;
+    user-select: none;
 }
 
 #select-engine{
@@ -101,9 +152,11 @@ body{
     margin:0;
     font-size: 12px;
     color: aliceblue;
+    user-select: none;
 }
 
 img{
+    -webkit-user-drag: none;
     user-select: none;
 }
 
@@ -130,6 +183,7 @@ form:hover{
 #inputbox{
     background-color: rgba(255, 255, 255, 0);
     border: none;
+    line-height: 1.25rem;
 }
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
@@ -194,14 +248,17 @@ input:focus,textarea:focus{
 .time{
     font-size: 70px;
     user-select: none;
+    -webkit-user-drag: none;
     font-weight: 600;
     text-shadow: 0 2px 6px rgb(0 0 0 / 16%);
     color:aliceblue
 }
 
 .date-info{
+    -webkit-user-drag: none;
     user-select: none;
-    color:aliceblue
+    color:aliceblue;
+    margin:0 5px;
 }
 
 .hitokoto{

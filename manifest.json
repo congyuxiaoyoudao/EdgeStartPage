@@ -1,9 +1,25 @@
 {
-    "name":"新建标签页",
-    "description":"写点你想写的，反正也看不到，后面几句才是重点",
-    "manifest_version":2,
-    "version":"1.0",
-    "chrome_url_overrides":{
-         "newtab":"html/default.html"}
+    "name": "新建标签页",
+    "description": "写点你想写的，反正也看不到，后面几句才是重点",
+    "icons": {
+        "16": "rc/favicon.ico",
+        "48": "rc/favicon.ico",
+        "128": "rc/favicon.ico"
+    },
+    "manifest_version": 3,
+    "version": "1.0",
+    "chrome_url_overrides": {
+        "newtab": "html/default.html"
+    },
+    "action": {
+        "default_icon": {
+            "16": "rc/google.png",
+            "48": "rc/google.png",
+            "128": "rc/google.png"
+        },
+        "default_title": "新建标签页"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; connect-src 'self';"
     }
-    
+}
