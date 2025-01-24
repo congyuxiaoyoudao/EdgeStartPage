@@ -35,6 +35,9 @@
                     </div>
 
                     <input type="text" class="w-full" id="inputbox" name="q" placeholder="要搜点什么呢～(∠・ω< )⌒★">
+                    <button type="button" id="clear" style="display: none;">
+                        <img src="../rc/clear.png" width="20px" height="20px" oncontextmenu="return false;">
+                    </button>
                     <button type="submit" id="search">
                         <img src="../rc/search.png" width="20px" height="20px" oncontextmenu="return false;">
                     </button>
@@ -54,7 +57,11 @@
             </div>
         </div>
         <div class="w-full" id ="favorites-wrap">
-            <div id="favorites-box">
+            <div id="favorites-tab">
+                <div class="tab-item" id="tab-resource">Resource</div>
+                <div class="tab-item" id="tab-cloud">Cloud</div>
+            </div>
+            <div class="favorites-box" id="tab-resource-content">
                 <div class="favor-item">
                     <a href="https://www.bilibili.com" target="_blank" class="favor-item-link">
                         <img class="favor-item-icon" id="bilibili" src="../rc/bookmark/bilibili.svg" width="40px" height="40px" oncontextmenu="return false;">
@@ -83,6 +90,14 @@
                     <a href="https://www.pinterest.jp" target="_blank" class="favor-item-link">
                         <img class="favor-item-icon" id="pinterest" src="../rc/bookmark/pinterest.svg" width="40px" height="40px" oncontextmenu="return false;">
                         <p class="favor-item-name">Pinterest</p>
+                    </a>
+                </div>
+            </div>
+            <div class="favorites-box none" id="tab-cloud-content">
+                <div class="favor-item">
+                    <a href="https://www.bilibili.com" target="_blank" class="favor-item-link">
+                        <img class="favor-item-icon" id="bilibili" src="../rc/bookmark/bilibili.svg" width="40px" height="40px" oncontextmenu="return false;">
+                        <p class="favor-item-name">test</p>
                     </a>
                 </div>
             </div>

@@ -36,6 +36,26 @@ setInterval(updateTime, 1000);
 
 let isExpanded= 0;
 document.addEventListener('DOMContentLoaded', (event) => {
+    const inputBox = document.getElementById('inputbox');
+    const clearButton = document.getElementById('clear');
+
+    // inputbox监听input事件
+    inputBox.addEventListener('input', () => {
+        if (inputBox.value.length > 0) {
+            clearButton.style.display = 'inline';
+        } else {
+            clearButton.style.display = 'none';
+        }
+    });
+
+    // clear按钮监听click事件
+    clearButton.addEventListener('click', () => {
+        inputBox.value = '';
+        clearButton.style.display = 'none';
+        inputBox.focus();
+    });
+
+    // 搜索引擎下拉框
     const selectEngine = document.getElementById('select-engine');
     selectEngine.addEventListener('click', () => {
         isExpanded = !isExpanded;
@@ -43,11 +63,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
         else foldDropdown();
     });
 
+    // 时间框
     const timeBox = document.getElementById('time-box');
     timeBox.addEventListener('click', () => {
         console.log('on time box clicked');
     });
+
+    // 切换选项卡
+    var prevTabID = 'tab-resource';
+    const tabs = document.querySelectorAll('.tab-item');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabId = tab.id;
+            switchTab(prevTabID,tabId);
+            console.log(prevTabID,tabId);
+            prevTabID = tabId;
+        });
+    });
+
 });
+
 
 function foldDropdown(){
     document.getElementById('search-down').style.transform = `scaleY(0)`;
@@ -70,6 +105,21 @@ function changeEngine(actionUrl,index) {
             break;
     }
     console.log(actionUrl);
+}
+
+function switchTab(prevTabId,tabId) {
+    hideElementById(prevTabId + '-content');
+    showElementById(tabId + '-content');
+}
+
+function hideElementById(elementId) {
+    const element = document.getElementById(elementId);
+    element.style.display = 'none';
+}
+
+function showElementById(elementId) {
+    const element = document.getElementById(elementId);
+    element.style.display = 'block';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
