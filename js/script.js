@@ -81,6 +81,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
+    // 每日一言
+    fetch('https://international.v1.hitokoto.cn?encode=json&charset=utf-8&c=j&c=k&c=l')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // 处理返回的 JSON 数据
+        // 你可以在这里将数据展示在页面上
+        const hitokotoElement = document.querySelector('.hitokoto');
+        hitokotoElement.textContent = '「' + data.hitokoto + '」';
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+
 });
 
 
